@@ -4,7 +4,7 @@ enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
 
 data class Usuario(var nome: String, val id: Int, val email: String)
 
-data class ConteudoEducacional(var nome: String, val duracao: Int)
+data class ConteudoEducacional(var nome: String, val duracao: Int, val nivel: Nivel)
 
 data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
 
@@ -22,8 +22,8 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
 
 fun main() {
     
-    val conteudoEducFuncoes = ConteudoEducacional("Funções Kotlin", 2)
-    val conteudoEducClasses = ConteudoEducacional("Classes Kotlin", 2)
+    val conteudoEducFuncoes = ConteudoEducacional("Funções Kotlin", 2, Nivel.BASICO)
+    val conteudoEducClasses = ConteudoEducacional("Classes Kotlin", 2, Nivel.INTERMEDIARIO)
     
     val formacaoKotlin = Formacao("Kotlin Experience", mutableListOf(conteudoEducFuncoes, conteudoEducClasses))
     
