@@ -4,14 +4,19 @@ enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
 
 data class Usuario(var nome: String, val id: Int, val email: String)
 
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
+data class ConteudoEducacional(var nome: String, val duracao: Int)
 
 data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
 
     val inscritos = mutableListOf<Usuario>()
+    val listaInscritos: List<Usuario> = inscritos  // variável somente leitura da lista de usuários 
     
     fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+        inscritos.add(usuario)
+    }
+
+    fun getUsuariosInscritos(): List<Usuario> {
+        return listaInscritos
     }
 }
 
