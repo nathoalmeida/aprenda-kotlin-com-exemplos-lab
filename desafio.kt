@@ -21,6 +21,24 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
 }
 
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    
+    val conteudoEducFuncoes = ConteudoEducacional("Funções Kotlin", 2)
+    val conteudoEducClasses = ConteudoEducacional("Classes Kotlin", 2)
+    
+    val formacaoKotlin = Formacao("Kotlin Experience", mutableListOf(conteudoEducFuncoes, conteudoEducClasses))
+    
+    val usuario1 = Usuario("Nathalia", 1, "nathalia@email.com")
+    val usuario2 = Usuario("Lucas", 2, "lucas@email.com")
+    
+    formacaoKotlin.matricular(usuario1)
+    formacaoKotlin.matricular(usuario2)
+    
+    
+
+    
+    println(usuario1)
+    println(formacaoKotlin)
+    
+    println(formacaoKotlin.getUsuariosInscritos())
+
 }
